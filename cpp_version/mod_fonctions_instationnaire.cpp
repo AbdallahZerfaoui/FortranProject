@@ -5,7 +5,8 @@ int Nx, Ny;
 double Lx, Ly, D;
 
 // Function to read parameters from a file
-array<double,NBR_PARAMS> read_parameters(const string& filename) {
+array<double,NBR_PARAMS> read_parameters(const string& filename) 
+{
     array<double,NBR_PARAMS> params;
 	ifstream file(filename);
     if (file.is_open()) {

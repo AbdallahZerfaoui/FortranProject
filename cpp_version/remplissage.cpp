@@ -105,7 +105,8 @@ int main()
     // Save results to files
     ofstream file_vectU_b("VecteurU_b"), file_vectU("VecteurU");
 
-    for (int l = 1; l <= n; ++l) {
+    for (int l = 1; l <= n; ++l) 
+	{
         file_vectU << U(l - 1) << endl;  // Save the vector U to file
 
         passage(l, i0, j0, Nx);
