@@ -11,12 +11,12 @@ SEQUENTIAL_SRC = solver_utils.f90 \
 	  remplissage_V.f90
 
 STEADY_PARALLEL_SRC = solver_utils.f90 \
-	  Grad_para.f90 \
+	  cg_solver_parallel.f90 \
 	  mod_remplissage.f90 \
 	  remplissage_V_para_stationnaire.f90
 
 UNSTEADY_PARALLEL_SRC = solver_utils.f90 \
-      Grad_para.f90 \
+      cg_solver_parallel.f90 \
       mod_remplissage_instationnaire.f90 \
       remplissage_V_para_instationnaire.f90
 

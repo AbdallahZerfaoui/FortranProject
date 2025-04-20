@@ -1,4 +1,4 @@
-module Grad_para
+module cg_solver_parallel
 	use mod_fonctions_instationnaire
 	implicit none 
   
@@ -120,5 +120,5 @@ end do
 	
 
 	end subroutine Grad_conjuge_para
-end module Grad_para
+end module cg_solver_parallel
 
