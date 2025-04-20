@@ -19,9 +19,9 @@ contains
 	read(11,*) D
 	close(11)
 
-	f1=2.d0*((x-x**2)+(y-y**2)) 
+	! f1=2.d0*((x-x**2)+(y-y**2)) 
 	!f1=sin(x)+cos(y)
-    !f1=exp(-1*(x-0.5*Lx)**2)*exp(-1*(y-0.5*Ly)**2)*cos(0.5*pi*t)!sin(x)+cos(y)!2*((x-x**2)+(2*y-y**2)) 
+    f1=exp(-1*(x-0.5*Lx)**2)*exp(-1*(y-0.5*Ly)**2)*cos(0.5*pi*t)!sin(x)+cos(y)!2*((x-x**2)+(2*y-y**2)) 
   end function f1
 !========================================================================
 !fonction g
@@ -36,8 +36,8 @@ function g(x,y)
 !=============================
  function h(x,y)
     double precision :: x, y, h
-    h=0.0
-    !h=1.d0
+    ! h=0.0
+    h=1.d0
     !h=sin(x)+cos(y)
   end function h
 !================================================
