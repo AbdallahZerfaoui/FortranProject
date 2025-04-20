@@ -23,6 +23,14 @@ contains
 	!f1=sin(x)+cos(y)
     f1=exp(-1*(x-0.5*Lx)**2)*exp(-1*(y-0.5*Ly)**2)*cos(0.5*pi*t)!sin(x)+cos(y)!2*((x-x**2)+(2*y-y**2)) 
   end function f1
+!===================================================
+!fonction f instationnaire
+!==========================================
+  function f1_insta(x,y,t, Lx, Ly)
+    double precision:: x, y, f1_insta, Lx, Ly,D, pi=acos(-1.0),t
+	! f1_insta=2.d0*((x-x**2)+(y-y**2)) 
+    f1_insta=exp(-1*(x-0.5*Lx)**2)*exp(-1*(y-0.5*Ly)**2)*cos(0.5*pi*t)!sin(x)+cos(y)!2*((x-x**2)+(2*y-y**2)) 
+  end function f1_insta
 !========================================================================
 !fonction g
 !========================================================================

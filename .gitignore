@@ -1,0 +1,13 @@
+#general
+.DS_Store
+.vscode
+*.out
+*/*.out
+*.o
+*/*.o
+*.exe
+*/*.exe
+*/Vecteur*
+Vecteur*
+*.txt
+

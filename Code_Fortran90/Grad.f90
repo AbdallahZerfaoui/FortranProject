@@ -11,7 +11,7 @@ contains
 	double precision,dimension(1:n), intent(in) :: F
 	double precision,dimension(1:n)::Gr,DIR,V,Uk,Grk
 	double precision::alpha,p,epsi=1E-9
-	integer::compt,l
+	integer::compt=0,l
 	
 	Gr=prodMV(A,U,n,Nx)-1.d0*F !matmul(A,U)-F!prodMV(A,U,n)-F
 	DIR= -Gr!F!-1*Gr

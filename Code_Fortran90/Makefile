@@ -1,8 +1,9 @@
 # Compiler and flags
 FC = mpifort
-FFLAGS = -O0 -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow
+# FFLAGS = -O0 -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow
+FFLAGS = -g
 LDFLAGS = $(FFLAGS)
-NBR_PROC = 4
+NBR_PROC = 1
 
 # Source files (order matters for modules!)
 SRC = mod_fonctions_instationnaire.f90 \
@@ -17,7 +18,7 @@ OBJ = $(SRC:.f90=.o)
 EXE = solver
 
 # MPI run command
-MPI_CMD = mpirun -np $(NBR_PROC) --allow-run-as-root
+MPI_CMD = mpirun -np
 
 # Default target
 all: $(EXE)
@@ -32,7 +33,7 @@ $(EXE): $(OBJ)
 
 # Run the program
 run:
-	$(MPI_CMD) ./$(EXE)
+	$(MPI_CMD) $(NBR_PROC) --allow-run-as-root ./$(EXE)
 
 # Clean build artifacts
 clean:

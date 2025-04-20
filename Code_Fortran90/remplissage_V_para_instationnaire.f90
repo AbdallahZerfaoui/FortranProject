@@ -10,7 +10,7 @@ program remplissage_V
 
   integer :: Nx,Ny, nt=10,n, i, j, k, l, p, compt=0, Np, i1, ie,i0, Me, statinfo, j1, je, j0, r! k coordonnée globale 
   integer,dimension(MPI_STATUS_SIZE)::status
-  double precision :: Lx, Ly, D, dx, dy, dt=0, Epsi=1E-4, alpha=1
+  double precision :: Lx, Ly, D, dx, dy, dt=0.d0, Epsi=1E-4, alpha=1
   double precision :: alpha_me_num,alpha_me_deno,alpha_num=0,alpha_deno=0,beta=1,&
   beta_me_num,beta_me_deno,beta_num=0,beta_deno=0, val_trans=0, norm_Gr_loc, norm_Gr=1.d0,&
   t1_b, t2_b, t1_e, t2_e

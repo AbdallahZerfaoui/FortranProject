@@ -19,6 +19,11 @@ contains
 	
 	dx=Lx/(Nx+1)
   	dy=Ly/(Ny+1)
+	dt=1.d0
+	! print*, Me, 'i1', i1, 'ie', ie
+  	!==============================
+  	! Remplissage de la matrice A 	!
+  	!==============================
 	!==============================
   	! Remplissage du vecteur F 	!
   	!==============================
@@ -26,7 +31,7 @@ contains
 do l=1,n
 	if (l>=i1 .and. l<=ie) then 
 		call passage(l,i,j,Nx) 
-		F(l)=f1(j*dx,i*dy,(k+1)*dt)
+		F(l)=f1_insta(j*dx,i*dy,(k+1)*dt, Lx, Ly)
 	end if
 end do
   !print*, F(1)

@@ -8,7 +8,7 @@ contains
     include "mpif.h"
 
 !============================================
-!D�claration des variables
+!Declaration des variables
 !============================================
     integer, intent(in) :: n,Nx
 	double precision,dimension(1:5,i1:ie), intent(in) :: A
