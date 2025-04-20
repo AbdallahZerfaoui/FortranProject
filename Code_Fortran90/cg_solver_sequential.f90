@@ -1,4 +1,4 @@
-module Grad
+module cg_solver_sequential
 	use mod_fonctions_instationnaire
 	implicit none 
   
@@ -44,4 +44,4 @@ contains
 	end do
 	!print*, "je suis le compt", compt
 	end subroutine Grad_conjuge
-end module Grad
+end module cg_solver_sequential
