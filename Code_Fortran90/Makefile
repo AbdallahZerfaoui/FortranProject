@@ -1,27 +1,27 @@
 # Compiler and flags
 FC = mpifort
-# FFLAGS = -O0 -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow
+# FFLAGS = -O3 -fcheck=all -g -fbacktrace -ffpe-trap=invalid,zero,overflow
 FFLAGS = -g
 LDFLAGS = $(FFLAGS)
 NBR_PROC = 4
 
 # Source files (order matters for modules!)
-SEQUENIAL_SRC = mod_fonctions_instationnaire.f90 \
-	  Grad.f90 \
+SEQUENTIAL_SRC = solver_utils.f90 \
+	  cg_solver_sequential.f90 \
 	  remplissage_V.f90
 
-STEADY_PARALLEL_SRC = mod_fonctions_instationnaire.f90 \
+STEADY_PARALLEL_SRC = solver_utils.f90 \
 	  Grad_para.f90 \
 	  mod_remplissage.f90 \
 	  remplissage_V_para_stationnaire.f90
 
-UNSTEADY_PARALLEL_SRC = mod_fonctions_instationnaire.f90 \
+UNSTEADY_PARALLEL_SRC = solver_utils.f90 \
       Grad_para.f90 \
       mod_remplissage_instationnaire.f90 \
       remplissage_V_para_instationnaire.f90
 
 # Object files (derived from source files)
-SEQUENIAL_OBJ = $(SEQUENIAL_SRC:.f90=.o)
+SEQUENIAL_OBJ = $(SEQUENTIAL_SRC:.f90=.o)
 STEADY_PARALLEL_OBJ = $(STEADY_PARALLEL_SRC:.f90=.o)
 UNSTEADY_PARALLEL_OBJ = $(UNSTEADY_PARALLEL_SRC:.f90=.o)
 
