@@ -30,6 +30,10 @@ def main():
     print(f"After scale: {u.data}")
     print(f"Norm: {u.norm()}")
     
+    # Test Sequential Sparse Matrix
+    A = SequentialSparseMatrix(grid)
+    print(f"Matrix : {A.matrix}")
+    
     
 
 
