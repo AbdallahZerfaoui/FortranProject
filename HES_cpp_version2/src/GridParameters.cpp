@@ -63,22 +63,22 @@ GridParameters::~GridParameters()
 	std::cout << "GridParameters destructor called" << std::endl;
 }
 
-// void GridParameters::globalIndexToGrid(int k, int& i, int& j)
-// {
-// 	// std::cout << "GridParameters globalIndexToGrid called" << std::endl;
-// 	// Convert global index 'k' to grid indices 'i' and 'j'
-// 	// Assuming a 2D grid, you can calculate 'i' and 'j' as follows:
-// 	i = k / Ny; // Row index
-// 	j = k % Ny; // Column index
-// 	// Adjust if necessary based on your grid layout
-// }
-// int GridParameters::gridIndexToGlobal(int i, int j)
-// {
-// 	// std::cout << "GridParameters gridIndexToGlobal called" << std::endl;
-// 	// Convert grid indices 'i' and 'j' to a global index 'k'
-// 	// Assuming a 2D grid, you can calculate 'k' as follows:
-// 	return i * Ny + j; // Global index
-// 	// Adjust if necessary based on your grid layout
-// }
+void GridParameters::globalIndexToGrid(int k, int& i, int& j) const
+{
+	// std::cout << "GridParameters globalIndexToGrid called" << std::endl;
+	// Convert global index 'k' to grid indices 'i' and 'j'
+	// Assuming a 2D grid, you can calculate 'i' and 'j' as follows:
+	i = k / _Ny; // Row index
+	j = k % _Ny; // Column index
+	// Adjust if necessary based on your grid layout
+}
+int GridParameters::gridIndexToGlobal(int i, int j) const
+{
+	// std::cout << "GridParameters gridIndexToGlobal called" << std::endl;
+	// Convert grid indices 'i' and 'j' to a global index 'k'
+	// Assuming a 2D grid, you can calculate 'k' as follows:
+	return i * _Ny + j; // Global index
+	// Adjust if necessary based on your grid layout
+}
 
 

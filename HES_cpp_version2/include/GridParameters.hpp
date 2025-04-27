@@ -22,8 +22,8 @@ public:
 	GridParameters& operator=(const GridParameters& other); // Copy assignment operator
 	~GridParameters();                           // Destructor	// Add other member functions here (declared above or add more manually)
 
-	// void globalIndexToGrid(int k, int& i, int& j) const;
-	// int gridIndexToGlobal(int i, int j) const;
+	void globalIndexToGrid(int k, int& i, int& j) const;
+	int gridIndexToGlobal(int i, int j) const;
 	std::tuple<int, int, double, double, double> loadConfigData() const;
 };
 
