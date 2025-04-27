@@ -49,7 +49,8 @@ LDLIBS =
 TARGET = solver
 
 # Find all .cpp source files in the current directory
-SRCS = main.cpp src/GridParameters.cpp
+SRCS = main.cpp src/GridParameters.cpp \
+				src/Vectors.cpp
 
 # Generate corresponding object file names (replace .cpp with .o)
 OBJS = $(SRCS:.cpp=.o)
@@ -89,7 +90,7 @@ fclean:
 
 re: fclean all
 
-run:
+run: re
 	@echo "Running $(TARGET)..."
 	./$(TARGET)
 
