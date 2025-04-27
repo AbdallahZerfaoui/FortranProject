@@ -33,6 +33,10 @@ def main():
     # Test Sequential Sparse Matrix
     A = SequentialSparseMatrix(grid)
     print(f"Matrix : {A.matrix}")
+    u = SequentialVector(grid.n)
+    u.data = np.random.rand(grid.n)
+    f = A.multiply(u)
+    print(f"Matrix-vector product: {f.data}")
     
     
 

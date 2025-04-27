@@ -30,6 +30,16 @@ class SequentialSparseMatrix(MatrixBase):
 		self.grid = grid
 		self._n = grid.n
 		self.matrix = csr_matrix((self._n, self._n), dtype=np.float64)
+  
+	def multiply(self, u: 'VectorBase') -> 'VectorBase':
+		"""
+		Multiplies the sparse matrix with a vector and returns the result.
+		"""
+		product = self.matrix * u.data
+		# Convert the result to a SequentialVector
+		result = SequentialVector(self._n)
+		result.data = product.toarray().flatten()
+		return result
 
 	def populate(self):
 		"""
