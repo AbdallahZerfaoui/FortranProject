@@ -38,7 +38,7 @@ class SequentialSparseMatrix(MatrixBase):
 		product = self.matrix * u.data
 		# Convert the result to a SequentialVector
 		result = SequentialVector(self._n)
-		result.data = product.toarray().flatten()
+		result.data = product
 		return result
 
 	def populate(self):
@@ -46,7 +46,20 @@ class SequentialSparseMatrix(MatrixBase):
 		Populates the matrix with data based on the grid parameters.
 		For simplicity, we will just fill it with random values.
 		"""
+		_D = self.grid.config["D"]
+		_Nx = self.grid.config["Nx"]
+		_dx = self.grid.dx
+		_dy = self.grid.dy
+
 		for i in range(self.n):
-			for j in range(self.n):
-				if np.random.rand() < 0.1:  # Sparse condition
-					self.matrix[i, j] = np.random.rand()
+			self.matrix[i, i] = 2.0 * _D * (1.0 / (_dx**2) + 1.0 / (_dy**2)) # diagonal
+   
+			if i % _Nx != _Nx - 1:
+				self.matrix[i, i + 1] = -_D / (_dx**2) 
+				self.matrix[i + 1, i] = -_D / (_dx**2)
+    
+			if (i + _Nx < self.n):
+				self.matrix[i, i + _Nx] = -_D / (_dy**2)
+				self.matrix[i + _Nx, i] = -_D / (_dy**2)
+    
+			
