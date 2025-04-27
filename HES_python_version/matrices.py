@@ -58,7 +58,7 @@ class SequentialSparseMatrix(MatrixBase):
 				self.matrix[i, i + 1] = -_D / (_dx**2) 
 				self.matrix[i + 1, i] = -_D / (_dx**2)
     
-			if (i + _Nx < self.n):
+			if (i + _Nx < self._n):
 				self.matrix[i, i + _Nx] = -_D / (_dy**2)
 				self.matrix[i + _Nx, i] = -_D / (_dy**2)
     

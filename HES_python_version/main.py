@@ -32,6 +32,7 @@ def main():
     
     # Test Sequential Sparse Matrix
     A = SequentialSparseMatrix(grid)
+    A.populate()
     print(f"Matrix : {A.matrix}")
     u = SequentialVector(grid.n)
     u.data = np.random.rand(grid.n)
