@@ -1,7 +1,9 @@
 #general
 .DS_Store
 .vscode
-
+HeatEquationSolver/
+cpp_version/*
+scripts/
 
 *.out
 */*.out
