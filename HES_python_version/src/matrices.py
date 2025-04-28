@@ -40,13 +40,16 @@ class SequentialSparseMatrix(MatrixBase):
 		"""
 		Multiplies the sparse matrix with a vector and returns the result.
 		"""
+		if u.data.shape[0] != self._n:
+			raise ValueError("Vector size does not match matrix size.")
+		
 		product = self.matrix * u.data
 		# Convert the result to a SequentialVector
 		result = SequentialVector(self._n)
 		result.data = product
 		return result
       
-	def populate(self):
+	def populate(self): 
 		"""
 		Populates the matrix with data based on the grid parameters
 		using scipy.sparse.diags for efficiency.
@@ -85,7 +88,7 @@ class SequentialSparseMatrix(MatrixBase):
 
 		# Assemble the diagonals list and offsets list for sparse.diags
 		diagonals = [diagN, diag1, diag0, diag1, diagN]
-		offsets = [-_Nx, -1, 0, 1, _Nx]
+		offsets = [-_Nx, -1, 0, 1, _Nx] # TODO: check if this is correct
 
 		# Create the sparse matrix (CSR format is often good for calculations)
 		self.matrix = scipy.sparse.diags(
