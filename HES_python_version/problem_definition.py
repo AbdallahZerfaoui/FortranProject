@@ -6,7 +6,7 @@ class ProblemDefinition():
     This class defines the source term and boundary conditions
     for the PDE problem based on the specified case.
 	"""
-    def __init__(self, grid: GridParameters, case: str):
+    def __init__(self, grid: GridParameters, case: str='steady_polynomial'):
         """
         Case:
 		- steady polynomial source term : steady_polynomial

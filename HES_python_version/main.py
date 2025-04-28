@@ -39,10 +39,14 @@ def main():
     f = A.multiply(u)
     print(f"Matrix-vector product: {f.data}")
     
-	
+    # Test Vector filling
+    F = SequentialVector(grid.n)
+    problem = ProblemDefinition(grid)
+    assembler = ProblemAssembler(grid, problem)
+    assembler.fill_rhs_steady(F)
+    print(f"Filled vector F: {F.data}")
     
     
-
 
 if __name__ == "__main__":
     main()
