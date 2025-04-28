@@ -14,8 +14,8 @@ class GridParameters:
         Convert a global index to a grid index, it starts from (0, 0) to (Nx-1, Ny-1)
         """
         _Nx = self.config["Nx"]
-        i = k // _Nx + 1
-        j = k % _Nx + 1
+        i = k % _Nx + 1
+        j = k // _Nx + 1
         return (i, j)
 
     def grid_index_to_global(self, i: int, j: int) -> int:
@@ -23,5 +23,5 @@ class GridParameters:
         Convert a grid index to a global index
         """
         _Nx = self.config["Nx"]
-        k = (j - 1) + (i - 1) * _Nx
+        k = (i - 1) + (j - 1) * _Nx
         return k
