@@ -16,5 +16,4 @@ python-dateutil==2.9.0.post0
 scipy==1.15.2
 setuptools==75.8.0
 six==1.17.0
--e git+https://github.com/AbdallahZerfaoui/HeatEquationSolver.git@1c9f9233585e4195348e82521ffc613f11f8cf55#egg=solver&subdirectory=HES_python_version
 wheel==0.45.1
