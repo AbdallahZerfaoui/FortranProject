@@ -51,7 +51,7 @@ class SequentialSparseMatrix(MatrixBase):
 		_dx = self.grid.dx
 		_dy = self.grid.dy
 
-		for i in range(self.n):
+		for i in range(self._n):
 			self.matrix[i, i] = 2.0 * _D * (1.0 / (_dx**2) + 1.0 / (_dy**2)) # diagonal
    
 			if i % _Nx != _Nx - 1:
