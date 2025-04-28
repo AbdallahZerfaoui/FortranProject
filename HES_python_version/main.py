@@ -13,7 +13,7 @@ def main():
     print(f"GridParameters spacing in x direction: {grid.dx}")
     print(f"GridParameters spacing in y direction: {grid.dy}")
     # Convert global index to grid index
-    i, j = grid.global_index_to_grid(5)
+    i, j = grid.global_index_to_grid(27)
     print(f"Global index 5 corresponds to grid index: ({i}, {j})")
     # Convert grid index to global index
     k = grid.grid_index_to_global(i, j)
