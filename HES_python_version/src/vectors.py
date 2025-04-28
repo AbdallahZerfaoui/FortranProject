@@ -73,18 +73,31 @@ class SequentialVector(VectorBase):
         """
         Computes the dot product with another SequentialVector.
         """
-        return np.dot(self.data, other.data)
+        if self.global_size != other.global_size:
+            raise ValueError("Vectors must be of the same size for this operation.")
+        
+        # recast data to float64 for consistency
+        self.data = self.data.astype(np.float64)
+        other.data = other.data.astype(np.float64)
+        product = np.dot(self.data, other.data)
+        return product
     
     def axpy(self, alpha: float, y: 'SequentialVector'):
         """
         Performs the operation self = self + alpha * y.
         """
+        if self.global_size != y.global_size:
+            raise ValueError("Vectors must be of the same size for this operation.")
+        # recast data to float64 for consistency
+        self.data = self.data.astype(np.float64)
         self.data += alpha * y.data
         
     def scale(self, alpha: float):
         """
         Performs the operation self = alpha * self.
         """
+        # recast data to float64 for consistency
+        self.data = self.data.astype(np.float64)
         self.data *= alpha
         
     def norm(self) -> float:
