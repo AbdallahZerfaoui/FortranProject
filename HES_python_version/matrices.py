@@ -31,7 +31,7 @@ class SequentialSparseMatrix(MatrixBase):
 		self._n = grid.n
 		self.matrix = csr_matrix((self._n, self._n), dtype=np.float64)
   
-	def multiply(self, u: 'VectorBase') -> 'VectorBase':
+	def multiply(self, u: 'SequentialVector') -> 'SequentialVector':
 		"""
 		Multiplies the sparse matrix with a vector and returns the result.
 		"""

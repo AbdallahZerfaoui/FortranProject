@@ -29,10 +29,12 @@ class SequentialSolver(SolverBase):
 		# U = SequentialVector(_n)
 		# U.data = np.zeros(_n)
 		# initialize residual
-		R = A.multiply(U).axpy(-1.0, F) # R = AU - F
+		R = A.multiply(U) # R = AU
+		R.axpy(-1.0, F)   # R = AU - F
 
 		# initialize direction
-		DIR = R.scale(-1.0) # DIR = -R
+		DIR = R
+		DIR.scale(-1.0)  # DIR = -R
 
 		# Conjugate gradient loop
 		norms_ratio = R.norm() / F.norm()
