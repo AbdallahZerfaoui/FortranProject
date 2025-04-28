@@ -1,14 +1,20 @@
 contourpy==1.3.2
 cycler==0.12.1
 fonttools==4.57.0
+fortls==3.2.2
+iniconfig==2.1.0
+json5==0.12.0
 kiwisolver==1.4.8
 matplotlib==3.10.1
 numpy==2.2.5
 packaging==25.0
 pillow==11.2.1
+pluggy==1.5.0
 pyparsing==3.2.3
+pytest==8.3.5
 python-dateutil==2.9.0.post0
 scipy==1.15.2
 setuptools==75.8.0
 six==1.17.0
+-e git+https://github.com/AbdallahZerfaoui/HeatEquationSolver.git@1c9f9233585e4195348e82521ffc613f11f8cf55#egg=solver&subdirectory=HES_python_version
 wheel==0.45.1

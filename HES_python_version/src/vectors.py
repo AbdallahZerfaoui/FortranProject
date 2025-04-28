@@ -1,4 +1,5 @@
-from imports import *
+import abc
+import numpy as np
 
 # Forward declaration for type hinting within methods
 class VectorBase(abc.ABC): 

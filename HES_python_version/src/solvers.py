@@ -1,4 +1,7 @@
-from imports import *
+import abc
+import numpy as np
+from vectors import VectorBase
+from matrices import MatrixBase
 
 class SolverBase(abc.ABC):
     pass

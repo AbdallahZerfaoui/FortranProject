@@ -15,3 +15,7 @@ scripts/
 Vecteur*
 *.pyc
 
+#Tests
+.pytest_cache/
+solver.egg-info/
+

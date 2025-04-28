@@ -1,4 +1,5 @@
-from imports import *
+from typing import List, Tuple
+from config import ConfigLoader
 
 
 class GridParameters:

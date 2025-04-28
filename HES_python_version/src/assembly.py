@@ -1,4 +1,7 @@
-from imports import *
+import numpy as np
+from grid import GridParameters
+from problem_definition import ProblemDefinition
+from vectors import VectorBase, SequentialVector
 
 class ProblemAssembler:
     def __init__(self, grid: 'GridParameters', problem: 'ProblemDefinition'):

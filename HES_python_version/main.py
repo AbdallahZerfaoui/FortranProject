@@ -1,4 +1,4 @@
-from imports import *
+from src.imports import *
 
 
 def main():
@@ -41,7 +41,7 @@ def main():
     
     # Test Vector filling
     F = SequentialVector(grid.n)
-    problem = ProblemDefinition(grid)
+    problem = ProblemDefinition(grid, case="steady_trigonometric")
     assembler = ProblemAssembler(grid, problem)
     assembler.fill_rhs_steady(F)
     print(f"Filled vector F: {F.data}")

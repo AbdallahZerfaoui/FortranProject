@@ -1,6 +1,6 @@
-from config import ConfigLoader
 import pytest
 import json
+from src.config import ConfigLoader
 
 def test_config_loader(tmp_path):
 	""" 
@@ -8,7 +8,6 @@ def test_config_loader(tmp_path):
 	"""
 	tmp_file = tmp_path/"test_config.json"
 	loader = ConfigLoader(filename=tmp_file)
-	config = loader.load_config()
  
 	expected_config = {
         "Nx": 10,
@@ -17,7 +16,14 @@ def test_config_loader(tmp_path):
         "Ly": 2.0,
         "D": 1.5
     }
+
+    # Convert the dictionary to a JSON formatted string
+	config_content_str = json.dumps(expected_config, indent=4)
+
+    #    This is the crucial missing step!
+	tmp_file.write_text(config_content_str, encoding='utf-8')
     
+	config = loader.load_config()
 	assert isinstance(config, dict)
 	assert 'Nx' in config
 	assert 'Ny' in config

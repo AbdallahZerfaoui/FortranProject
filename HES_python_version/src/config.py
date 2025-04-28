@@ -1,4 +1,4 @@
-from imports import *
+import json
 
 class ConfigLoader():
     def __init__(self, filename = "data.json"):

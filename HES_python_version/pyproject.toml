@@ -1,0 +1,13 @@
+# pyproject.toml (place in your project root: /home/abdallah/myProjects/HeatEquationSolver/HES_python_version/)
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solver"  # Choose a suitable Python package name
+version = "0.1.0"
+# You can add optional fields like: description, authors, readme, etc.
+
+[tool.setuptools.packages.find]
+where = ["src"]  # Tells setuptools your code is in the 'src' directory

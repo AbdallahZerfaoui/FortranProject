@@ -1,4 +1,5 @@
-from imports import *
+import numpy as np
+from grid import GridParameters
 
 class ProblemDefinition():
     """
