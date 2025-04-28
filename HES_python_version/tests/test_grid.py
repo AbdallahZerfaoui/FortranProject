@@ -11,7 +11,9 @@ def test_global_index_to_grid():
     }
     grid = GridParameters(config)
     assert grid.global_index_to_grid(0) == (1, 1)
+    assert grid.global_index_to_grid(3) == (4, 1)
     assert grid.global_index_to_grid(7) == (4, 2)
     assert grid.global_index_to_grid(9) == (2, 3)
+    assert grid.global_index_to_grid(12) == (1, 4)
     assert grid.global_index_to_grid(15) == (4, 4)
     
