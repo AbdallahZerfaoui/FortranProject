@@ -46,6 +46,21 @@ def main():
     assembler.fill_rhs_steady(F)
     print(f"Filled vector F: {F.data}")
     
+    # Test Solver
+    solver = SequentialSolver()
+    U = SequentialVector(grid.n)
+    U.data = np.zeros(grid.n)
+    solver.solve(A, U, F)
+    print(f"Solved vector U: {U.data}")
+    
+    #plot U
+    plt.imshow(U.data.reshape(grid.config["Nx"], grid.config["Ny"]), cmap='hot', interpolation='nearest')
+    plt.colorbar()
+    plt.title("Solution U")
+    plt.xlabel("x")
+    plt.ylabel("y")
+    plt.show()
+    
     
 
 if __name__ == "__main__":

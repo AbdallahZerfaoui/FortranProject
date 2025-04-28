@@ -2,6 +2,7 @@ import json
 import abc
 import numpy as np
 from scipy.sparse import csr_matrix
+import matplotlib.pyplot as plt
 
 # Classes
 from config import ConfigLoader
