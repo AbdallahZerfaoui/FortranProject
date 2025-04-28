@@ -13,6 +13,5 @@ scripts/
 */*.exe
 */Vecteur*
 Vecteur*
-*.txt
 *.pyc
 
