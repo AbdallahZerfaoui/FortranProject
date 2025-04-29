@@ -1,5 +1,18 @@
 from src.imports import *
 
+def load_src_files(folder: str = 'src'):
+    """
+    Load all source files in the src directory.
+    """
+    my_files = ["main.py"]
+    src_dir = os.path.join(os.path.dirname(__file__), 'src')
+    if not os.path.exists(src_dir):
+        raise FileNotFoundError(f"Source directory {src_dir} does not exist.")
+    
+    for file in os.listdir(src_dir):
+        if file.endswith('.py') and file != '__init__.py':
+            my_files.append(file)
+    return my_files
 
 def main():
     # Load configuration
@@ -68,18 +81,18 @@ def main():
     
 
 if __name__ == "__main__":
-    my_files = [
-        "main.py",
-        "config.py",
-        "grid.py",
-        "vectors.py",
-        "matrices.py",
-        "solvers.py",
-        "problem_definition.py",
-        "assembly.py",
-        __file__
-    ]
-    # my_files_regex = [f.replace('.', r'\.') for f in my_files]
+    # my_files = [
+    #     "main.py",
+    #     "config.py",
+    #     "grid.py",
+    #     "vectors.py",
+    #     "matrices.py",
+    #     "solvers.py",
+    #     "problem_definition.py",
+    #     "assembly.py",
+    #     __file__
+    # ]
+    my_files = load_src_files("src")
 
     cProfile.run('main()', 'profile_stats')
     stats = pstats.Stats('profile_stats')
