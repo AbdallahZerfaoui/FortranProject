@@ -33,25 +33,25 @@ def main():
     # Test Sequential Sparse Matrix
     A = SequentialSparseMatrix(grid)
     A.populate()
-    print(f"Matrix : {A.matrix}")
-    u = SequentialVector(grid.n)
-    u.data = np.random.rand(grid.n)
-    f = A.multiply(u)
-    print(f"Matrix-vector product: {f.data}")
+    # print(f"Matrix : {A.matrix}")
+    # u = SequentialVector(grid.n)
+    # u.data = np.random.rand(grid.n)
+    # f = A.multiply(u)
+    # print(f"Matrix-vector product: {f.data}")
     
     # Test Vector filling
     F = SequentialVector(grid.n)
-    problem = ProblemDefinition(grid, case="steady_trigonometric")
+    problem = ProblemDefinition(grid, case="steady_polynomial")
     assembler = ProblemAssembler(grid, problem)
     assembler.fill_rhs_steady(F)
-    print(f"Filled vector F: {F.data}")
+    # print(f"Filled vector F: {F.data}")
     
     # Test Solver
     solver = SequentialSolver()
     U = SequentialVector(grid.n)
     U.data = np.zeros(grid.n)
     solver.solve(A, U, F)
-    print(f"Solved vector U: {U.data}")
+    # print(f"Solved vector U: {U.data}")
     
     #plot U
     plt.imshow(U.data.reshape(grid.config["Nx"], grid.config["Ny"]), cmap='hot', interpolation='nearest')
