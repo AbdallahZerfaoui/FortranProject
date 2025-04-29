@@ -14,8 +14,10 @@ scripts/
 */Vecteur*
 Vecteur*
 *.pyc
+profile_stats
 
 #Tests
 .pytest_cache/
 solver.egg-info/
+
 

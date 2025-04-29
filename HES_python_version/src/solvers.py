@@ -1,5 +1,6 @@
 import abc
 import numpy as np
+import time
 from vectors import VectorBase
 from matrices import MatrixBase
 
@@ -23,6 +24,16 @@ class SequentialSolver(SolverBase):
 	"""
 	def __init__(self, tolerance: float = 1e-4):
 		self._epsilon = tolerance
+
+	# def mesure_solver_speed(self, A: 'MatrixBase', U: 'VectorBase', F: 'VectorBase') -> float:
+	# 	"""
+	# 	Measures the time taken to solve the linear system AU = F.
+	# 	"""
+	# 	start_time = time.time()
+	# 	self.solve(A, U, F)
+	# 	end_time = time.time()
+	# 	total_time = (end_time - start_time)
+	# 	return total_time
 
 	def solve(self, A: 'MatrixBase', U: 'VectorBase', F: 'VectorBase') -> int:
 		"""

@@ -45,23 +45,46 @@ def main():
     assembler = ProblemAssembler(grid, problem)
     assembler.fill_rhs_steady(F)
     # print(f"Filled vector F: {F.data}")
-    
-    # Test Solver
-    solver = SequentialSolver()
+
+    # Tester Solver
+    solver = SequentialSolver(tolerance=1e-9)
     U = SequentialVector(grid.n)
     U.data = np.zeros(grid.n)
     solver.solve(A, U, F)
     # print(f"Solved vector U: {U.data}")
+
+    # Mesure solver speed
+    # time_taken = solver.mesure_solver_speed(A, U, F)
+    # print(f"Time taken to solve the system: {time_taken:.6f} seconds")
     
     #plot U
-    plt.imshow(U.data.reshape(grid.config["Nx"], grid.config["Ny"]), cmap='hot', interpolation='nearest')
-    plt.colorbar()
-    plt.title("Solution U")
-    plt.xlabel("x")
-    plt.ylabel("y")
-    plt.show()
+    # plt.imshow(U.data.reshape(grid.config["Nx"], grid.config["Ny"]), cmap='hot', interpolation='nearest')
+    # plt.colorbar()
+    # plt.title("Solution U")
+    # plt.xlabel("x")
+    # plt.ylabel("y")
+    # plt.show()
     
     
 
 if __name__ == "__main__":
-    main()
+    my_files = [
+        "main.py",
+        "config.py",
+        "grid.py",
+        "vectors.py",
+        "matrices.py",
+        "solvers.py",
+        "problem_definition.py",
+        "assembly.py",
+        __file__
+    ]
+    # my_files_regex = [f.replace('.', r'\.') for f in my_files]
+
+    cProfile.run('main()', 'profile_stats')
+    stats = pstats.Stats('profile_stats')
+    stats.strip_dirs()
+    stats.sort_stats('cumulative')
+    pattern = '|'.join(my_files)
+    stats.print_stats(pattern)
+        
