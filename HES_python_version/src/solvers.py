@@ -21,8 +21,8 @@ class SequentialSolver(SolverBase):
 	"""
 	A sequential solver implementation using NumPy.
 	"""
-	def __init__(self, tolence: float = 1e-4):
-		self._epsilon = tolence
+	def __init__(self, tolerance: float = 1e-4):
+		self._epsilon = tolerance
 
 	def solve(self, A: 'MatrixBase', U: 'VectorBase', F: 'VectorBase') -> int:
 		"""
